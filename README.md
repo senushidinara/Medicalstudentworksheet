@@ -12,9 +12,36 @@
 
 *This repository represents the operational core of the system—not a demo, not a tutorial.*
 
-[🚀 Quick Start](#-quick-start) • [📚 Documentation](#-table-of-contents) • [🏗️ Architecture](#-system-architecture) • [🤝 Contributing](#-contributing)
+[🔗 Try it out](#-try-it-out--the-48-hour-empire) • [🚀 Quick Start](#-quick-start) • [📚 Documentation](#-table-of-contents) • [🏗️ Architecture](#-system-architecture) • [🤝 Contributing](#-contributing)
 
 </div>
+
+---
+
+## 🔗 Try it out — The 48-Hour Empire
+
+### 🛍️ Store & Website (Launched Hour 12)  
+[Live storefront and brand site built and published during the hackathon](https://senushidinara.gumroad.com/l/bteqd)  
+
+---
+
+### 🎬 TikTok (Launched Hour 18)  
+[Faceless short-form videos created and deployed within hours](https://www.tiktok.com/@themedarchitest?_r=1&_t=ZS-92aybvjldGW)  
+
+---
+
+### 📰 Newsletter (Launched Hour 20)  
+[Active Substack capturing subscribers and publishing live content](https://open.substack.com/pub/clinicalartist/p/architecting-clinical-distinction)  
+
+---
+
+### 🎨 Brand & Interface (Built Hour 6)  
+[Complete visual identity and interaction system designed in one sprint](https://angel-poet-48557829.figma.site/)  
+
+---
+
+### ⚙️ The Machine (Code)  
+[Repository containing the architecture that enabled rapid execution](https://github.com/senushidinara/Medicalstudentworksheet.git)
 
 ---
 
@@ -48,6 +75,7 @@ Each component strengthens the next. **Nothing is ornamental.**
 <details open>
 <summary><b>📖 Click to expand/collapse navigation</b></summary>
 
+- [🔗 Try it out — The 48-Hour Empire](#-try-it-out--the-48-hour-empire)
 - [🎯 The System in One View](#-the-system-in-one-view)
 - [✨ What Lives Here](#-what-lives-here)
 - [💡 How Value Moves](#-how-value-moves)
