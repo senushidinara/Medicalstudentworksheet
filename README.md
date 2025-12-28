@@ -390,10 +390,10 @@ graph TD
     A --> AI[🤖 AI Model]
     AI --> R[💰 Revenue Engine]
     
-    S --> Feedback[Display Feedback]
-    A --> Data[Structured Data]
-    AI --> Adaptive[Adaptive Content]
-    R --> Loop[Continuous Improvement]
+    S -.-> Feedback[Display Feedback]
+    A -.-> Data[Structured Data]
+    AI -.-> Adaptive[Adaptive Content]
+    R -.-> Loop[Continuous Improvement]
 ```
 
 **🔄 Data Flow Principles:**
