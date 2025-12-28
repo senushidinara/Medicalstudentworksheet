@@ -1,0 +1,17 @@
+[build]
+  # Build command to run
+  command = "npm run build"
+  
+  # Directory with the static files (output of build)
+  publish = "dist"
+  
+  # Optional: Specify Node version
+  # If you need a specific Node version, uncomment and set:
+  # [build.environment]
+  #   NODE_VERSION = "18"
+
+# SPA redirect rules - ensures client-side routing works
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
