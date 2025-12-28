@@ -1,8 +1,14 @@
 import { useState } from 'react';
-import referenceImage from '../assets/4e755b9d2d77483a9dc5afae177d133c27b36c98.png';
+import referenceImage from 'figma:asset/4e755b9d2d77483a9dc5afae177d133c27b36c98.png';
 import { SectionHeader } from './components/SectionHeader';
 import { ClinicalScenario } from './components/ClinicalScenario';
 import { ActiveRecallCard } from './components/ActiveRecallCard';
+import { DragDropLabel } from './components/DragDropLabel';
+import { ImageHotspot } from './components/ImageHotspot';
+import { SequenceExercise } from './components/SequenceExercise';
+import { DragDropMatching } from './components/DragDropMatching';
+import { XRayComparison } from './components/XRayComparison';
+import { DecisionTree } from './components/DecisionTree';
 
 interface Answers {
   [key: string]: string;
@@ -334,6 +340,442 @@ export default function App() {
                 disabled={showResults}
               />
             </div>
+          </div>
+        </div>
+
+        {/* SECTION 6: Interactive Drag & Drop Labeling */}
+        <div className="mb-12">
+          <SectionHeader
+            number={6}
+            title="Drag & Drop Anatomy Challenge"
+            subtitle="Test Your Knowledge Interactively"
+            focus="Practice identifying structures by dragging labels to the correct locations - just like you'll need to do on practical exams!"
+          />
+
+          <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <DragDropLabel
+              imageSrc={referenceImage}
+              labels={[
+                { id: 'label-1', text: 'Clavicle', correctTarget: 'zone-1' },
+                { id: 'label-2', text: 'Manubrium', correctTarget: 'zone-2' },
+                { id: 'label-3', text: 'Sternal Angle', correctTarget: 'zone-3' },
+                { id: 'label-4', text: 'Body of Sternum', correctTarget: 'zone-4' },
+                { id: 'label-5', text: 'Xiphoid Process', correctTarget: 'zone-5' },
+                { id: 'label-6', text: 'Jugular Notch', correctTarget: 'zone-6' },
+              ]}
+              dropZones={[
+                { id: 'zone-1', x: 50, y: 15, label: 'Clavicle' },
+                { id: 'zone-2', x: 52, y: 45, label: 'Manubrium' },
+                { id: 'zone-3', x: 52, y: 52, label: 'Sternal Angle' },
+                { id: 'zone-4', x: 52, y: 60, label: 'Body of Sternum' },
+                { id: 'zone-5', x: 48, y: 75, label: 'Xiphoid Process' },
+                { id: 'zone-6', x: 52, y: 35, label: 'Jugular Notch' },
+              ]}
+              showResults={showResults}
+            />
+          </div>
+        </div>
+
+        {/* SECTION 7: Interactive Image Hotspot Discovery */}
+        <div className="mb-12">
+          <SectionHeader
+            number={7}
+            title="Discover Anatomical Structures"
+            subtitle="Click to Reveal Information"
+            focus="Explore the anatomy interactively - click on different regions to learn about each structure."
+          />
+
+          <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <ImageHotspot
+              imageSrc={referenceImage}
+              instructions="Click on different regions of the image to discover anatomical information. Try to find all structures!"
+              hotspots={[
+                {
+                  id: 'h1',
+                  x: 35,
+                  y: 10,
+                  width: 30,
+                  height: 12,
+                  label: 'Clavicle',
+                  info: 'The clavicle is an S-shaped bone that acts as a strut connecting the upper limb to the axial skeleton. It is the most commonly fractured bone, typically at the junction of the medial 2/3 and lateral 1/3.',
+                },
+                {
+                  id: 'h2',
+                  x: 48,
+                  y: 32,
+                  width: 10,
+                  height: 8,
+                  label: 'Jugular (Suprasternal) Notch',
+                  info: 'A palpable depression at the superior border of the manubrium. Critical landmark for central line placement, assessing jugular venous pressure, and emergency airway procedures.',
+                },
+                {
+                  id: 'h3',
+                  x: 48,
+                  y: 42,
+                  width: 10,
+                  height: 8,
+                  label: 'Manubrium',
+                  info: 'The superior portion of the sternum that articulates with the clavicles and first two ribs. Provides protection to the great vessels of the superior mediastinum.',
+                },
+                {
+                  id: 'h4',
+                  x: 48,
+                  y: 50,
+                  width: 10,
+                  height: 4,
+                  label: 'Sternal Angle (Angle of Louis)',
+                  info: 'The ridge at T4-T5 level where manubrium meets the body of sternum. Critical for counting ribs (marks 2nd rib), cardiac auscultation, and identifies the tracheal bifurcation level.',
+                },
+                {
+                  id: 'h5',
+                  x: 48,
+                  y: 55,
+                  width: 10,
+                  height: 15,
+                  label: 'Body of Sternum',
+                  info: 'The longest part of the sternum. Provides attachment for ribs 3-7. This is the target area for chest compressions during CPR (lower half of the sternum).',
+                },
+                {
+                  id: 'h6',
+                  x: 45,
+                  y: 72,
+                  width: 10,
+                  height: 8,
+                  label: 'Xiphoid Process',
+                  info: 'The smallest and most inferior part of the sternum. Remains cartilaginous until age 40. Must be avoided during CPR as compression can cause liver laceration.',
+                },
+                {
+                  id: 'h7',
+                  x: 30,
+                  y: 18,
+                  width: 12,
+                  height: 12,
+                  label: 'Acromioclavicular Joint',
+                  info: 'Joint between the acromion of the scapula and lateral end of clavicle. Common site of sports injuries (AC separations), graded I-VI based on ligament damage.',
+                },
+              ]}
+            />
+          </div>
+        </div>
+
+        {/* SECTION 8: Procedural Sequencing */}
+        <div className="mb-12">
+          <SectionHeader
+            number={8}
+            title="Clinical Procedure Sequencing"
+            subtitle="Order Matters in Medicine"
+            focus="Practice arranging clinical steps in the correct order - essential for OSCE exams and real patient care."
+          />
+
+          <div className="space-y-6">
+            <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+              <SequenceExercise
+                title="Steps for Locating the 2nd Intercostal Space During Cardiac Auscultation"
+                steps={[
+                  { id: 's1', text: 'Position the patient supine or at 45° angle', order: 1 },
+                  { id: 's2', text: 'Palpate the jugular notch at the base of the neck', order: 2 },
+                  { id: 's3', text: 'Move fingers inferiorly to feel the sternal angle ridge', order: 3 },
+                  { id: 's4', text: 'Move laterally from the sternal angle to find the 2nd rib', order: 4 },
+                  { id: 's5', text: 'The space below the 2nd rib is the 2nd intercostal space', order: 5 },
+                  { id: 's6', text: 'Place stethoscope at 2nd right intercostal space for aortic valve', order: 6 },
+                ]}
+                showResults={showResults}
+              />
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+              <SequenceExercise
+                title="Emergency Management of Suspected Posterior SC Dislocation"
+                steps={[
+                  { id: 'e1', text: 'Assess airway, breathing, and circulation (ABC)', order: 1 },
+                  { id: 'e2', text: 'Evaluate for signs of mediastinal compression (dysphagia, dyspnea, vascular compromise)', order: 2 },
+                  { id: 'e3', text: 'Immobilize the patient and obtain IV access', order: 3 },
+                  { id: 'e4', text: 'Order immediate CT scan with 3D reconstruction', order: 4 },
+                  { id: 'e5', text: 'Consult orthopedic surgery and cardiothoracic surgery', order: 5 },
+                  { id: 'e6', text: 'Prepare for closed reduction in operating room (not ED)', order: 6 },
+                ]}
+                showResults={showResults}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* SECTION 9: Drag & Drop Matching */}
+        <div className="mb-12">
+          <SectionHeader
+            number={9}
+            title="Clinical Correlations Matching"
+            subtitle="Connect Anatomy to Clinical Practice"
+            focus="Match anatomical structures with their clinical significance - the key to thinking like a physician."
+          />
+
+          <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <DragDropMatching
+              pairs={[
+                {
+                  id: 'm1',
+                  term: 'Sternal Angle',
+                  definition: 'Landmark at T4-T5 level for counting ribs and locating 2nd intercostal space for cardiac auscultation',
+                },
+                {
+                  id: 'm2',
+                  term: 'Jugular Notch',
+                  definition: 'Palpable landmark for central line placement and assessing jugular venous pressure (JVP)',
+                },
+                {
+                  id: 'm3',
+                  term: 'Xiphoid Process',
+                  definition: 'Must be avoided during CPR compressions to prevent liver laceration',
+                },
+                {
+                  id: 'm4',
+                  term: 'Clavicle Middle Third',
+                  definition: 'Most common fracture site due to S-curve transition and lack of ligamentous support',
+                },
+                {
+                  id: 'm5',
+                  term: 'Coracoclavicular Ligaments',
+                  definition: 'Trapezoid and conoid ligaments that stabilize AC joint; torn in Type III separations',
+                },
+              ]}
+              showResults={showResults}
+            />
+          </div>
+        </div>
+
+        {/* SECTION 10: X-Ray Interpretation */}
+        <div className="mb-12">
+          <SectionHeader
+            number={10}
+            title="Imaging Interpretation Challenge"
+            subtitle="Read X-Rays Like a Radiologist"
+            focus="Develop pattern recognition skills for identifying pathology on imaging - crucial for clinical practice."
+          />
+
+          <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <XRayComparison
+              title="Case: 25-year-old cyclist after collision"
+              normalImage={referenceImage}
+              abnormalImage={referenceImage}
+              question="Based on the patient X-ray, what is the most likely diagnosis?"
+              findings={[
+                {
+                  id: 'f1',
+                  label: 'Midshaft clavicle fracture',
+                  description: 'Correct! The X-ray shows a fracture at the junction of medial 2/3 and lateral 1/3 of the clavicle - the most common location. Note the displacement with the medial fragment pulled superiorly by SCM and the lateral fragment pulled inferiorly by gravity and pec major.',
+                  isCorrect: true,
+                },
+                {
+                  id: 'f2',
+                  label: 'AC joint separation Type III',
+                  description: 'Incorrect. AC separations show widening of the AC joint space and elevation of the clavicle relative to the acromion, not a fracture line through the clavicle shaft.',
+                  isCorrect: false,
+                },
+                {
+                  id: 'f3',
+                  label: 'Sternoclavicular dislocation',
+                  description: 'Incorrect. SC dislocations occur at the medial end of the clavicle where it meets the sternum, not in the mid-shaft.',
+                  isCorrect: false,
+                },
+                {
+                  id: 'f4',
+                  label: 'Normal clavicle with soft tissue swelling',
+                  description: 'Incorrect. There is a clear fracture line visible through the clavicle shaft with displacement of fragments.',
+                  isCorrect: false,
+                },
+              ]}
+              userAnswer={answers.xray1}
+              onAnswerSelect={(answer) => handleAnswerChange('xray1', answer)}
+              showResults={showResults}
+            />
+          </div>
+        </div>
+
+        {/* SECTION 11: Clinical Decision Tree */}
+        <div className="mb-12">
+          <SectionHeader
+            number={11}
+            title="Clinical Decision Making"
+            subtitle="Navigate Complex Patient Scenarios"
+            focus="Practice clinical reasoning through interactive decision trees - mimics real-world patient management."
+          />
+
+          <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <DecisionTree
+              title="Shoulder Pain After Trauma"
+              scenario="A 28-year-old mountain biker presents to the ED with shoulder pain after falling directly onto the shoulder. You need to determine the diagnosis and management."
+              startNodeId="node1"
+              nodes={[
+                {
+                  id: 'node1',
+                  question: 'On physical examination, what key finding do you look for first?',
+                  options: [
+                    {
+                      text: 'Location of maximal tenderness',
+                      nextNode: 'node2',
+                      feedback: 'Good start! Determining whether tenderness is over the AC joint, clavicle shaft, or SC joint helps narrow your differential.',
+                    },
+                    {
+                      text: 'Neurovascular status',
+                      nextNode: 'node1b',
+                      feedback: 'While important for any trauma, you should first identify where the injury is located before detailed neurovascular assessment.',
+                    },
+                  ],
+                },
+                {
+                  id: 'node1b',
+                  question: 'After ensuring neurovascular status is intact, where is the maximal tenderness?',
+                  options: [
+                    {
+                      text: 'Over the AC joint at the point of the shoulder',
+                      nextNode: 'node3',
+                      feedback: 'This localizes the injury to the AC joint. You proceed with specific AC joint examination.',
+                    },
+                    {
+                      text: 'Along the clavicle shaft',
+                      nextNode: 'node4',
+                      feedback: 'This suggests a clavicle fracture. You need imaging to confirm.',
+                    },
+                  ],
+                },
+                {
+                  id: 'node2',
+                  question: 'Tenderness is maximal over the AC joint. What do you observe?',
+                  options: [
+                    {
+                      text: 'Visible step-off deformity with elevated distal clavicle',
+                      nextNode: 'node5',
+                      feedback: 'Classic finding for AC separation! The deformity indicates likely Type III or higher separation.',
+                    },
+                    {
+                      text: 'No visible deformity but pain with cross-body adduction',
+                      nextNode: 'node6',
+                      feedback: 'Positive cross-body adduction test suggests AC joint pathology but may be lower grade separation or AC arthritis.',
+                    },
+                  ],
+                },
+                {
+                  id: 'node3',
+                  question: 'You see a step-off deformity. What imaging do you order?',
+                  options: [
+                    {
+                      text: 'AP shoulder X-ray with and without weights',
+                      nextNode: 'node7',
+                      feedback: 'Excellent choice! Weight-bearing views help differentiate Type II from Type III AC separations by showing the degree of separation.',
+                    },
+                    {
+                      text: 'MRI of the shoulder',
+                      nextNode: 'node7b',
+                      feedback: 'MRI is expensive and unnecessary for initial AC separation diagnosis. X-rays are sufficient and more cost-effective.',
+                    },
+                  ],
+                },
+                {
+                  id: 'node4',
+                  question: 'You suspect clavicle fracture. What imaging do you order?',
+                  options: [
+                    {
+                      text: 'Clavicle X-ray (AP and 45° cephalic tilt views)',
+                      nextNode: 'node8',
+                      feedback: 'Perfect! These standard views will show most clavicle fractures. The 45° view provides better visualization of displacement.',
+                    },
+                    {
+                      text: 'CT scan of the shoulder',
+                      nextNode: 'node8b',
+                      feedback: 'CT is unnecessary for most clavicle fractures. Plain X-rays are adequate unless suspecting mediastinal complications.',
+                    },
+                  ],
+                },
+                {
+                  id: 'node5',
+                  question: 'You order X-rays. What do you expect to see?',
+                  options: [
+                    {
+                      text: 'Increased coracoclavicular distance >100-130% compared to uninjured side',
+                      nextNode: 'final1',
+                      isCorrect: true,
+                      feedback: 'Excellent! This confirms Type III AC separation with complete disruption of AC and CC ligaments. Treatment options include conservative management for most patients or surgical repair for high-demand athletes.',
+                    },
+                    {
+                      text: 'Normal coracoclavicular distance',
+                      nextNode: 'final2',
+                      isCorrect: false,
+                      feedback: 'This would suggest a lower grade separation, but the visible step-off deformity indicates Type III with disrupted CC ligaments showing increased CC distance.',
+                    },
+                  ],
+                },
+                {
+                  id: 'node6',
+                  question: 'No deformity but positive provocative test. What grade separation do you suspect?',
+                  options: [
+                    {
+                      text: 'Type I or II AC separation',
+                      nextNode: 'final3',
+                      isCorrect: true,
+                      feedback: 'Correct! Type I (sprain of AC ligament) and Type II (AC ligament torn but CC ligaments intact) don\'t show significant deformity. Treatment is conservative with rest, ice, and gradual return to activity.',
+                    },
+                    {
+                      text: 'Type III or higher',
+                      nextNode: 'final4',
+                      isCorrect: false,
+                      feedback: 'Type III and higher separations show visible deformity with step-off. Without deformity, this is likely Type I or II.',
+                    },
+                  ],
+                },
+                {
+                  id: 'node7',
+                  question: 'X-rays show significantly increased CC distance. What is your diagnosis and initial management?',
+                  options: [
+                    {
+                      text: 'Type III AC separation; sling and referral to orthopedics',
+                      nextNode: 'final1',
+                      isCorrect: true,
+                      feedback: 'Excellent clinical reasoning! You correctly identified the injury, ordered appropriate imaging, and planned proper management. Most Type III AC separations are managed conservatively unless the patient is a high-demand athlete.',
+                    },
+                  ],
+                },
+                {
+                  id: 'node7b',
+                  question: 'MRI was expensive and unnecessary. Standard X-rays would have been sufficient.',
+                  options: [
+                    {
+                      text: 'Order X-rays now instead',
+                      nextNode: 'node7',
+                      feedback: 'Better late than never! Always consider cost-effectiveness in your imaging choices.',
+                    },
+                  ],
+                },
+                {
+                  id: 'node8',
+                  question: 'X-rays show midshaft clavicle fracture with some displacement. What is your management?',
+                  options: [
+                    {
+                      text: 'Sling immobilization and orthopedic follow-up in 1 week',
+                      nextNode: 'final5',
+                      isCorrect: true,
+                      feedback: 'Perfect! Most midshaft clavicle fractures heal well with conservative management. Surgical indications include: >2cm displacement, skin tenting, neurovascular compromise, or open fracture.',
+                    },
+                    {
+                      text: 'Immediate surgical referral for all clavicle fractures',
+                      nextNode: 'final6',
+                      isCorrect: false,
+                      feedback: 'Not all clavicle fractures need surgery. Most midshaft fractures without complications are managed conservatively.',
+                    },
+                  ],
+                },
+                {
+                  id: 'node8b',
+                  question: 'CT was unnecessary. X-rays would have been sufficient and more cost-effective.',
+                  options: [
+                    {
+                      text: 'Order X-rays now',
+                      nextNode: 'node8',
+                      feedback: 'Good correction! Always consider the most cost-effective approach first.',
+                    },
+                  ],
+                },
+              ]}
+            />
           </div>
         </div>
 
