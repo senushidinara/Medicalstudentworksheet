@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import referenceImage from 'figma:asset/4e755b9d2d77483a9dc5afae177d133c27b36c98.png';
+import referenceImage from '../assets/4e755b9d2d77483a9dc5afae177d133c27b36c98.png';
 import { SectionHeader } from './components/SectionHeader';
 import { ClinicalScenario } from './components/ClinicalScenario';
 import { ActiveRecallCard } from './components/ActiveRecallCard';
