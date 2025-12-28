@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import referenceImage from 'figma:asset/4e755b9d2d77483a9dc5afae177d133c27b36c98.png';
+import referenceImage from '../assets/4e755b9d2d77483a9dc5afae177d133c27b36c98.png';
 import { SectionHeader } from './components/SectionHeader';
 import { ClinicalScenario } from './components/ClinicalScenario';
 import { ActiveRecallCard } from './components/ActiveRecallCard';
@@ -846,6 +846,63 @@ export default function App() {
             <p>
               <strong>5. Imaging Review:</strong> After completing this worksheet, review X-rays and CT scans showing these structures and their injuries.
             </p>
+          </div>
+        </div>
+
+        {/* Additional Resources & Links */}
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 rounded-lg p-6 mt-8 shadow-md">
+          <h3 className="mb-4 text-blue-900">🔗 Additional Resources & Connect</h3>
+          <div className="space-y-3 text-sm">
+            <p className="text-blue-800 mb-4">
+              Explore more clinical content and connect with us on various platforms:
+            </p>
+            <div className="grid gap-3">
+              <a 
+                href="https://open.substack.com/pub/clinicalartist/p/architecting-clinical-distinction?r=4n9mqa&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-blue-700 hover:text-blue-900 hover:underline transition-colors"
+              >
+                <span>📰</span>
+                <span>Architecting Clinical Distinction - Substack Article</span>
+              </a>
+              <a 
+                href="https://x.com/senushid/status/2004966418316754982?s=46" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-blue-700 hover:text-blue-900 hover:underline transition-colors"
+              >
+                <span>🐦</span>
+                <span>Follow on X (Twitter)</span>
+              </a>
+              <a 
+                href="https://senushidinara.gumroad.com/l/bteqd" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-blue-700 hover:text-blue-900 hover:underline transition-colors"
+              >
+                <span>🛒</span>
+                <span>Get The Aesthetic Clinician on Gumroad</span>
+              </a>
+              <a 
+                href="https://www.tiktok.com/@themedarchitest?_r=1&_t=ZS-92aybvjldGW" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-blue-700 hover:text-blue-900 hover:underline transition-colors"
+              >
+                <span>🎵</span>
+                <span>Follow on TikTok @themedarchitest</span>
+              </a>
+              <a 
+                href="https://www.linkedin.com/posts/senushi-dinara-794b08313_the-aesthetic-clinician-interactive-anatomy-activity-7410728651006107648-l1QS?utm_medium=ios_app&rcm=ACoAAE-4bmABDsG7koHiBE1LVSIMXxcrRXe_WNg&utm_source=social_share_send&utm_campaign=copy_link" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-blue-700 hover:text-blue-900 hover:underline transition-colors"
+              >
+                <span>💼</span>
+                <span>Connect on LinkedIn - The Aesthetic Clinician</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
